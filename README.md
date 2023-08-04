@@ -14,7 +14,10 @@ Features:
 
 ## How to istall
 
-TBD. Fill out information on how to install.
+```
+npm i svelt-rating-selector-display
+```
+
 
 ## How to use
 
@@ -22,8 +25,8 @@ TBD. Fill out information on how to install.
 
 ```svelte
 <script>
-	import { RatingSelector } from 'svelte-rating-selector-display';
-	let rating = Null; // This will be updated when a user selects a rating
+  import { RatingSelector } from 'svelte-rating-selector-display';
+  let rating = Null; // This will be updated when a user selects a rating
 </script>
 
 <RatingSelector bind:rating enableSelection={true} />
@@ -33,7 +36,7 @@ TBD. Fill out information on how to install.
 
 ```svelte
 <script>
-	import { RatingSelector } from 'svelte-rating-selector-display';
+  import { RatingSelector } from 'svelte-rating-selector-display';
 </script>
 
 <RatingSelector rating={3.35} />
@@ -69,8 +72,8 @@ example:
 
 ```css
 :root {
-	--icon-selected-color: #211b27;
-	--icon-unselected-hover-color: #948f97;
+  --icon-selected-color: #211b27;
+  --icon-unselected-hover-color: #948f97;
 }
 ```
 
@@ -78,11 +81,11 @@ example:
 
 ```svelte
 <script>
-	import { RatingSelector } from 'svelte-rating-selector-display';
-	const style = {
-		'--icon-selected-color': '#211B27',
-		'--icon-unselected-hover-color': '#948F97',
-	};
+  import { RatingSelector } from 'svelte-rating-selector-display';
+  const style = {
+	'--icon-selected-color': '#211B27',
+    '--icon-unselected-hover-color': '#948F97',
+  };
 </script>
 
 <RatingSelector rating={3.7} {style} />
