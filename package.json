@@ -1,6 +1,6 @@
 {
 	"name": "svelt-rating-selector-display",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
@@ -13,9 +13,16 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"exports": {
+		"./package.json": "./package.json",
+		"./RatingSelector.svelte": {
+			"types": "./dist/RatingSelector.svelte.d.ts",
+			"svelte": "./dist/RatingSelector.svelte",
+			"default": "./dist/RatingSelector.svelte"
+		},
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
 		}
 	},
 	"files": [
@@ -46,5 +53,41 @@
 	},
 	"svelte": "./dist/index.js",
 	"types": "./dist/index.d.ts",
-	"type": "module"
+	"type": "module",
+	"license": "MIT",
+	"homepage": "https://github.com/stinger567/svelt-rating-selector-display",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/stinger567/svelt-rating-selector-display"
+	},
+	"bugs": {
+		"url": "https://github.com/stinger567/svelt-rating-selector-display/issues"
+	},
+	"author": {
+		"name": "Stinger567"
+	},
+	"keywords": [
+		"rating",
+		"star selector",
+		"rating selector",
+		"rating dispaly",
+		"rating-picker",
+		"star-picker",
+		"svelte",
+		"sveltkit",
+		"front-end"
+	],
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 2,
+		"singleQuote": true,
+		"quoteProps": "consistent",
+		"trailingComma": "all",
+		"semi": true,
+		"arrowParens": "always",
+		"printWidth": 150,
+		"pluginSearchDirs": [
+		  "."
+		]
+	}	
 }
