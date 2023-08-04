@@ -20,10 +20,10 @@
 				if (partialRatingIncon && partialFillIcon != rating) {
 					const partialFillAmount = (rating - partialFillIcon + 1) * 100;
 					const cssAttributes: CSSAttributes = {
-						background: `linear-gradient(90deg, var(--icon-selected-color, gold) ${partialFillAmount}%, var(--icon-unslected-color, #ccc) ${partialFillAmount}%)`,
+						'background': `linear-gradient(90deg, var(--icon-selected-color, gold) ${partialFillAmount}%, var(--icon-unslected-color, #ccc) ${partialFillAmount}%)`,
 						'background-clip': 'text',
 						'-webkit-background-clip': 'text',
-						'-webkit-text-fill-color': 'transparent'
+						'-webkit-text-fill-color': 'transparent',
 					};
 					for (const attribute in cssAttributes) {
 						partialRatingIncon.style.setProperty(attribute, cssAttributes[attribute]);
