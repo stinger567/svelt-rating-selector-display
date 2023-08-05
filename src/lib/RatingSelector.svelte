@@ -74,6 +74,8 @@
 		display: flex;
 		flex-direction: row-reverse;
 		flex-wrap: nowrap;
+		width: fit-content;
+		height: fit-content;
 	}
 
 	input {
