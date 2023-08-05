@@ -1,6 +1,6 @@
 # svelt-rating-selector-display
 
-This is a small svelt app that lets you easily get ratings/reviews from user and display them. It uses unicode characters and text as icons.
+This is a small svelt component that lets you easily get ratings/reviews from user and display them. It uses unicode characters and text as icons.
 
 Features:
 
@@ -11,6 +11,7 @@ Features:
 - Set the number rating icons
 - Keyboard shortcuts
 - Handles Null values
+
 
 ## How to istall
 
@@ -50,6 +51,7 @@ npm i svelt-rating-selector-display
 | `enableSelection` | boolean                        | If true the user can select a rating, if false a static rating will be displayed |
 | `numberOfIcons`   | number                         | The number of icons to display for the rating                                    |
 | `style`           | [key: string]: string; \| null | A list of styles to be applied to the parent element of the selector             |
+
 
 ## How to format
 
