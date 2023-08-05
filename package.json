@@ -1,7 +1,7 @@
 {
 	"name": "svelt-rating-selector-display",
 	"version": "1.1.0",
-	"description": "This is a small svelt component that lets you easily get ratings/reviews from user and display them. It uses unicode characters and text as icons.",
+	"description": "This small, dependency-free Svelte component enables effortless user rating input and display. It offers seamless customization with Unicode characters to suit individual preferences. Moreover, it boasts full reactivity to ensure a smooth and dynamic user experience. Has user accesability, and keyboard input.",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
