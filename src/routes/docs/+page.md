@@ -1,6 +1,7 @@
+
 # svelt-rating-selector-display
 
-This small, dependency-free Svelte component enables effortless user rating input and display. It offers seamless customization with Unicode characters to suit individual preferences. Moreover, it boasts full reactivity to ensure a smooth and dynamic user experience. Has user accesability, and keyboard input.
+This small, dependency-free Svelte component enables effortless user rating input and display. It offers seamless customization with Unicode characters to suit individual preferences. Moreover, it boasts full reactivity to ensure a smooth and dynamic user experience. Has user accesability, and allows keyboard input.
 
 Features:
 
