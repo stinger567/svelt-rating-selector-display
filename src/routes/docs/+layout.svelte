@@ -1,9 +1,9 @@
 <article class="markdown-body">
-    <slot/>
+	<slot />
 </article>
 
 <style>
-	article{
+	article {
 		max-width: 80ch;
 		padding: clamp(0.5em, 5vw, 2em);
 		margin: auto;

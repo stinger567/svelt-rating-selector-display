@@ -3,7 +3,7 @@
 </script>
 
 <h1>Rating Selector and Display for Svelte</h1>
-<div class=wrapper>
+<div class="wrapper">
 	<h2>Features</h2>
 	<ul>
 		<li>Custom Theming</li>
@@ -17,14 +17,12 @@
 		<li>Handles Null values</li>
 	</ul>
 	<h2>Install</h2>
-	<div>
-		npm i -D svelt-rating-selector-display
-	</div>
+	<div>npm i -D svelt-rating-selector-display</div>
 	<h2>Rating Selector</h2>
-	<RatingSelector enableSelection={true}/>
+	<RatingSelector enableSelection={true} />
 
 	<h2>Rating Display</h2>
-	<RatingSelector rating={4.55}/>
+	<RatingSelector rating={4.55} />
 </div>
 
 <style>
@@ -41,7 +39,7 @@
 		max-width: 80ch;
 		padding-bottom: 5em;
 		padding-inline: 2em;
-		--icon-size: clamp(2.5rem, 10vw, 4rem)
+		--icon-size: clamp(2.5rem, 10vw, 4rem);
 	}
 
 	h2 {
@@ -51,5 +49,4 @@
 		padding-top: 1em;
 		margin-bottom: 0;
 	}
-
 </style>

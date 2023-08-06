@@ -220,7 +220,7 @@
 		border-top: 1px solid var(--main-color-light);
 	}
 
-	.rating-selector{
+	.rating-selector {
 		margin: auto;
 		padding-inline: 1em;
 	}

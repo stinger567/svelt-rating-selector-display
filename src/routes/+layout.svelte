@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Header from './header.svelte'
+	import Header from './header.svelte';
 	// import "@fontsource/nunito";
 </script>
 
@@ -23,12 +23,12 @@
 		font-family: var(--main-font-family);
 		overflow-y: scroll;
 		margin: 0;
-  		padding: 0;
+		padding: 0;
 	}
 
 	.container {
 		margin: 0;
-  		padding: 0;
+		padding: 0;
 		color: var(--main-color-light);
 		font-family: var(--main-font-family);
 	}
