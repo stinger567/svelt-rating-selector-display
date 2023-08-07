@@ -92,7 +92,7 @@
 	}
 
 	input {
-		position: fixed;
+		position: absolute;
 		opacity: 0;
 		pointer-events: none;
 	}
