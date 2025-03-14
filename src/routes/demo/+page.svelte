@@ -1,68 +1,50 @@
 <script lang="ts">
-	import RatingSelector from '../../lib/RatingSelector.svelte';
-	let rating1: number | null = null;
-	let rating2: number | null = 3.55;
-	let iconNumber1: number | null = 5;
-	let iconNumber2: number | null = 5;
+	import RatingSelector from '$lib/RatingSelector.svelte';
+	let rating1: number | null = $state(null);
+	let rating2: number | null = $state(3.55);
+	let iconNumber1: number | null = $state(5);
+	let iconNumber2: number | null = $state(5);
 
-	let selectedColor1 = '#ffd700';
-	let unselectedColor1 = '#ccc';
-	let selectedHoverColor1 = '#f9dd39';
-	let unselectedHoverColor1 = '#f9e053b1';
-	let focusColor1 = '#ffffff';
-	let focusSize1 = '3px';
-	let iconSize1 = '3.5rem';
-	let iconSpacing1 = '0rem';
-	let icon1 = '★';
-	let style1: { [key: string]: string } = {
-		'--icon-selected-color': `${selectedColor1}`,
-		'--icon-unselected-hover-color': `${unselectedHoverColor1}`,
-		'--icon-selected-hover-color': `${selectedHoverColor1}`,
-		'--icon-unslected-color': `${unselectedColor1}`,
-		'--focused-stroke-color': `${focusColor1}`,
-		'--focused-stroke-size': `${focusSize1}`,
-		'--icon-size': `${iconSize1}`,
-		'--icon-spacing': `${iconSpacing1}`,
-		'--selector-icon': `${icon1}`,
-	};
-	$: style1 = {
-		'--icon-selected-color': `${selectedColor1}`,
-		'--icon-unselected-hover-color': `${unselectedHoverColor1}`,
-		'--icon-selected-hover-color': `${selectedHoverColor1}`,
-		'--icon-unslected-color': `${unselectedColor1}`,
-		'--focused-stroke-color': `${focusColor1}`,
-		'--focused-stroke-size': `${focusSize1}`,
-		'--icon-size': `${iconSize1}`,
-		'--icon-spacing': `${iconSpacing1}`,
-		'--selector-icon': JSON.stringify(`${icon1}`),
-	};
+	let selectedColor1 = $state('#ffd700');
+	let unselectedColor1 = $state('#cccccc');
+	let selectedHoverColor1 = $state('#f9dd39');
+	let unselectedHoverColor1 = $state('#f9e053');
+	let focusColor1 = $state('#ffffff');
+	let focusSize1 = $state('3px');
+	let iconSize1 = $state('3.5rem');
+	let iconSpacing1 = $state('0rem');
+	let icon1 = $state('★');
+	const style1: { [key: string]: string } = $derived({
+			'--icon-selected-color': `${selectedColor1}`,
+			'--icon-unselected-hover-color': `${unselectedHoverColor1}`,
+			'--icon-selected-hover-color': `${selectedHoverColor1}`,
+			'--icon-unslected-color': `${unselectedColor1}`,
+			'--focused-stroke-color': `${focusColor1}`,
+			'--focused-stroke-size': `${focusSize1}`,
+			'--icon-size': `${iconSize1}`,
+			'--icon-spacing': `${iconSpacing1}`,
+			'--selector-icon': JSON.stringify(`${icon1}`),
+		});
 
-	let selectedColor2 = '#ffd700';
-	let unselectedColor2 = '#ccc';
-	let iconSize2 = '3.5rem';
-	let iconSpacing2 = '0rem';
-	let icon2 = '★';
-	let style2: { [key: string]: string } = {
-		'--icon-selected-color': `${selectedColor2}`,
-		'--icon-unslected-color': `${unselectedColor2}`,
-		'--icon-size': `${iconSize2}`,
-		'--icon-spacing': `${iconSpacing2}`,
-		'--selector-icon': `${icon2}`,
-	};
-	$: style2 = {
-		'--icon-selected-color': `${selectedColor2}`,
-		'--icon-unslected-color': `${unselectedColor2}`,
-		'--icon-size': `${iconSize2}`,
-		'--icon-spacing': `${iconSpacing2}`,
-		'--selector-icon': JSON.stringify(`${icon2}`),
-	};
+	let selectedColor2 = $state('#ffd700');
+	let unselectedColor2 = $state('#cccccc');
+	let iconSize2 = $state('3.5rem');
+	let iconSpacing2 = $state('0rem');
+	let icon2 = $state('★');
+	const style2: { [key: string]: string } = $derived({
+			'--icon-selected-color': `${selectedColor2}`,
+			'--icon-unslected-color': `${unselectedColor2}`,
+			'--icon-size': `${iconSize2}`,
+			'--icon-spacing': `${iconSpacing2}`,
+			'--selector-icon': JSON.stringify(`${icon2}`),
+		});
 </script>
 
 <h1>DEMO</h1>
 <div class="rating-selector-container">
 	<h2 class="header-selector">Selector</h2>
 	<div class="rating-selector">
-		<RatingSelector bind:rating={rating1} enableSelection={true} bind:numberOfIcons={iconNumber1} bind:style={style1} />
+		<RatingSelector bind:rating={rating1} enableSelection={true} numberOfIcons={iconNumber1} style={style1} />
 	</div>
 	<div class="rating">Current rating: {rating1}</div>
 
@@ -74,7 +56,7 @@
 
 	<label for="selected-color-1">Change the color of the selected stars</label>
 	<input
-		type="text"
+		type="color"
 		id="selected-color-1"
 		bind:value={selectedColor1}
 		name="hexInput"
@@ -84,7 +66,7 @@
 
 	<label for="selected-hover-color-1">Change the color of the selected stars when hovered</label>
 	<input
-		type="text"
+		type="color"
 		id="selected-hover-color-1"
 		bind:value={selectedHoverColor1}
 		name="hexInput"
@@ -94,7 +76,7 @@
 
 	<label for="unselected-color-1">Change the color of the unselected stars</label>
 	<input
-		type="text"
+		type="color"
 		id="unselected-color-1"
 		bind:value={unselectedColor1}
 		name="hexInput"
@@ -104,7 +86,7 @@
 
 	<label for="unselected-hover-color-1">Change the color of the unselected stars when hovered</label>
 	<input
-		type="text"
+		type="color"
 		id="unselected-hover-color-1"
 		bind:value={unselectedHoverColor1}
 		name="hexInput"
@@ -114,7 +96,7 @@
 
 	<label for="focus-color-1">Change the color of the focus stroke</label>
 	<input
-		type="text"
+		type="color"
 		id="focus-color-1"
 		bind:value={focusColor1}
 		name="hexInput"
@@ -136,7 +118,7 @@
 
 	<h2 class="header-display">Display</h2>
 	<div class="rating-selector">
-		<RatingSelector bind:rating={rating2} bind:numberOfIcons={iconNumber2} bind:style={style2} />
+		<RatingSelector bind:rating={rating2} numberOfIcons={iconNumber2} style={style2} />
 	</div>
 	<div class="rating">Current rating: {rating2}</div>
 
@@ -148,7 +130,7 @@
 
 	<label for="selected-color-2">Change the color of the selected stars</label>
 	<input
-		type="text"
+		type="color"
 		id="selected-color-2"
 		bind:value={selectedColor2}
 		name="hexInput"
@@ -158,7 +140,7 @@
 
 	<label for="unselected-color-2">Change the color of the unselected stars</label>
 	<input
-		type="text"
+		type="color"
 		id="unselected-color-2"
 		bind:value={unselectedColor2}
 		name="hexInput"
@@ -211,6 +193,13 @@
 		font-size: clamp(1rem, 2vw, 1.5rem);
 		padding-left: 0.5rem;
 		background-color: var(--main-color-light);
+	}
+
+	input[type='color'] {
+		width: clamp(5rem, 13vw, 9.25rem);
+		max-width: 20rem;
+		padding-inline: 0.25rem;
+		height: clamp(1.75rem, 4vw, 2.25rem);
 	}
 
 	label {

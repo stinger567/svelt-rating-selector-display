@@ -5,41 +5,33 @@
 		[key: string]: string;
 	};
 
-	export let rating: number | null = null;
-	export let enableSelection: boolean | null = false;
-	export let numberOfIcons: number | null = 5;
-	export let style: CSSAttributes | null = null;
+	interface Props {
+		rating?: number | null;
+		enableSelection?: boolean | null;
+		numberOfIcons?: number | null;
+		style?: CSSAttributes | null;
+	}
+
+	let {
+		rating = $bindable(null),
+		enableSelection = false,
+		numberOfIcons = 5,
+		style = null
+	}: Props = $props();
 
 	let selectorElement: HTMLElement;
-	let ratingWhole: number;
-	let numberOfIconsDefault: number;
-
-	$: if (style && selectorElement) {
-		for (const attribute in style) {
-			if (attribute) {
-				selectorElement.style.setProperty(attribute, style[attribute]);
-			}
-		}
-	}
-
-	$: ratingWhole = rating ? Math.floor(rating) : 0;
-	$: numberOfIconsDefault = numberOfIcons ? numberOfIcons : 5;
-
-	$: if (!enableSelection && selectorElement) {
-		selectorElement.classList.remove('rating-selector-hover');
-		removePartialFillStylig();
-		if (rating && rating > 0 && numberOfIconsDefault > rating) {
-			tick().then(() => {
-				updatePartialFillRating();
-			});
-		}
-	}
+	let roudedRating: {rating: number} = {
+		get rating(){
+			return Math.min(rating ? Math.floor(rating) : 0, numberOfIcons || Number.MAX_VALUE);
+		},
+		set rating(rating: number){rating=rating}};
+	const numberOfIconsDefault: number = $derived(numberOfIcons ? numberOfIcons : 5);
 
 	function updatePartialFillRating() {
-		const partialFillIcon: number = ratingWhole + 1;
+		const partialFillIcon: number = roudedRating.rating + 1;
 		const partialRatingIcon: HTMLElement = selectorElement.getElementsByClassName(`iconLabel${partialFillIcon}`)[0] as HTMLElement;
-		if (partialRatingIcon && ratingWhole != rating) {
-			const partialFillAmount: number = (rating! - ratingWhole) * 100;
+		if (partialRatingIcon && roudedRating.rating != rating) {
+			const partialFillAmount: number = (rating! - roudedRating.rating) * 100;
 			const cssAttributes: CSSAttributes = {
 				background: `linear-gradient(90deg, var(--icon-selected-color, gold) ${partialFillAmount}%, var(--icon-unslected-color, #ccc) ${partialFillAmount}%)`,
 			};
@@ -58,26 +50,48 @@
 			}
 		}
 	}
+	
+	$effect(() => {
+		if (style && selectorElement) {
+			for (const attribute in style) {
+				if (attribute) {
+					selectorElement.style.setProperty(attribute, style[attribute]);
+				}
+			}
+		}
+	});
+
+	$effect(() => {
+		if (!enableSelection && selectorElement) {
+			selectorElement.classList.remove('rating-selector-hover');
+			removePartialFillStylig();
+			if (rating && rating > 0 && numberOfIconsDefault > rating) {
+				tick().then(() => {
+					updatePartialFillRating();
+				});
+			}
+		}
+	});
 </script>
 
 <div class="rating-selector rating-selector-hover" bind:this={selectorElement}>
 	{#each Array(numberOfIcons) as _, index}
 		{@const iconId = numberOfIconsDefault - index}
 		{#if enableSelection}
-			<input class="icon{iconId}" type="radio" aria-label="icon{iconId}" value={iconId} bind:group={rating} />
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+			<input class="icon{iconId}" type="radio" aria-label="icon{iconId}" value={iconId} bind:group={roudedRating.rating} />
+			<!-- svelte-ignore a11y_click_events_have_key_events -->
+			<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
 			<label
 				for="icon{iconId}"
 				title={iconId.toString()}
 				data-label={iconId}
-				on:click={() => {
+				onclick={() => {
 					rating = iconId;
 				}}
-			/>
+			></label>
 		{:else}
-			<input class="icon{iconId}" type="radio" aria-label="icon{iconId}" value={iconId} bind:group={ratingWhole} disabled />
-			<label class="iconLabel{iconId}" for="icon{iconId}" title={iconId.toString()} data-label={iconId} style="cursor: default;" />
+			<input class="icon{iconId}" type="radio" aria-label="icon{iconId}" value={iconId} bind:group={roudedRating.rating} disabled />
+			<label class="iconLabel{iconId}" for="icon{iconId}" title={iconId.toString()} data-label={iconId} style="cursor: default;"></label>
 		{/if}
 	{/each}
 </div>
@@ -101,7 +115,7 @@
 		font-size: 10vw;
 		cursor: pointer;
 		font-size: var(--icon-size, 3.5rem);
-		background: var(--icon-unslected-color, #ccc);
+		background: var(--icon-unslected-color, #cccccc);
 		padding-inline: var(--icon-spacing, 0em);
 		background-clip: text !important;
 		-webkit-background-clip: text !important;

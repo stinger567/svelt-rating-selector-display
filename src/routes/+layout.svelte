@@ -1,12 +1,17 @@
 <script lang="ts">
 	import Header from './header.svelte';
+	interface Props {
+		children?: import('svelte').Snippet;
+	}
+
+	let { children }: Props = $props();
 	// import "@fontsource/nunito";
 </script>
 
 <div class="container">
 	<Header />
 	<main>
-		<slot />
+		{@render children?.()}
 	</main>
 </div>
 

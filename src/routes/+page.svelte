@@ -1,5 +1,5 @@
 <script lang="ts">
-	import RatingSelector from '../lib/RatingSelector.svelte';
+	import RatingSelector from '$lib/RatingSelector.svelte';
 </script>
 
 <h1>Rating Selector and Display for Svelte</h1>
