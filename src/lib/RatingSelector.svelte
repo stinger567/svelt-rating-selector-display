@@ -75,7 +75,7 @@
 </script>
 
 <div class="rating-selector rating-selector-hover" bind:this={selectorElement}>
-	{#each Array(numberOfIcons) as _, index}
+	{#each Array(numberOfIcons) as _, index}  
 		{@const iconId = numberOfIconsDefault - index}
 		{#if enableSelection}
 			<input class="icon{iconId}" type="radio" aria-label="icon{iconId}" value={iconId} bind:group={roudedRating.rating} />
