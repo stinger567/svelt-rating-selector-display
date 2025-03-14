@@ -60,11 +60,11 @@ If null is passed in for a prop, it will be set as the default value.
 
 | Colors:                         | Default Value                                                                   | Description                                                                                             |
 | :------------------------------ | :------------------------------------------------------------------------------ | :------------------------------------------------------------------------------------------------------ |
-| `--icon-selected-color`         | ![#ffd700](https://via.placeholder.com/15/ffd700/000000?text=+) `#ffd700`       | Color of rating icons when they are selected                                                            |
-| `--icon-unselected-hover-color` | ![#ccc](https://via.placeholder.com/15/ccc/000000?text=+) `#ccc`                | Color of rating icons when they are not selected                                                        |
-| `--icon-selected-hover-color`   | ![#f9dd39](https://via.placeholder.com/15/f9dd39/000000?text=+) `#f9dd39`       | Color of rating icons when they are selcted and hovered over                                            |
-| `--icon-unslected-color`        | ![#f9e053b1](https://via.placeholder.com/15/f9e053b1/000000?text=+) `#f9e053b1` | Color of rating icons when they are unslected and hovered over                                          |
-| `--focused-stroke-color`        | ![#ffffff](https://via.placeholder.com/15/ffffff/000000?text=+) `#ffffff`       | Color of stroke around rating icon when it is focused. This is for keyboard use, and user accessibility |
+| `--icon-selected-color`         | ![#ffd700](https://craftypixels.com/placeholder-image/800x200/#ffd70) `#ffd700`       | Color of rating icons when they are selected                                                            |
+| `--icon-unselected-hover-color` | ![#cccccc](https://craftypixels.com/placeholder-image/800x200/cccccc) `#cccccc`                | Color of rating icons when they are not selected                                                        |
+| `--icon-selected-hover-color`   | ![#f9dd39](https://craftypixels.com/placeholder-image/800x200/f9dc39) `#f9dd39`       | Color of rating icons when they are selcted and hovered over                                            |
+| `--icon-unslected-color`        | ![#f9e053](https://craftypixels.com/placeholder-image/800x200/f9e053) `#f9e053` | Color of rating icons when they are unslected and hovered over                                          |
+| `--focused-stroke-color`        | ![#ffffff](https://craftypixels.com/placeholder-image/800x200/ffffff) `#ffffff`       | Color of stroke around rating icon when it is focused. This is for keyboard use, and user accessibility |
 
 | Formating:              | Default Value | Description                                                                                            |
 | :---------------------- | :------------ | :----------------------------------------------------------------------------------------------------- |
